@@ -28,11 +28,17 @@ tableData.forEach(ufoSiting => {
 // create event handlers to run when user inputs a date
 
 var button = d3.select("#filter-btn");
-var form = d3.select("#form");
+var form = d3.select("#formz");
 
 // create the event handlers 
 button.on("click", runEnter);
 form.on("submit", runEnter);
+
+// function that will remove elements from tbody so new search results can be added
+function clearResults(){
+    // clear the table of its data before adding filtered data
+    $("#ufo-table tbody").empty();
+}
 
 // create funtion to filter through data matching criteria
 function runEnter(){
@@ -51,8 +57,7 @@ function runEnter(){
     var filteredData = tableData.filter(date => date.datetime === inputValue);
     console.log(filteredData);
 
-    // clear the table of its data before adding filtered data
-    
+    clearResults;
 
     // display only the data that matches
     filteredData.forEach(ufoSiting => {
