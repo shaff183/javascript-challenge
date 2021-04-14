@@ -40,11 +40,6 @@ function runEnter(){
     // prevent the page from refreshing
     d3.event.preventDefault();
 
-
-    //deleting the table rows when button is clicked
-    // maybe try creating a function that deletes rows when button is clicked
-
-
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
 
@@ -55,6 +50,10 @@ function runEnter(){
     // filter through the data based on the date provided by user
     var filteredData = tableData.filter(date => date.datetime === inputValue);
     console.log(filteredData);
+
+
+    // clear the table of previous dasta 
+    document.getElementById("tbodyid").innerHTML = "";
 
     // display only the data that matches
     filteredData.forEach(ufoSiting => {
